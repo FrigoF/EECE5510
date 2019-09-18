@@ -4,7 +4,7 @@
 % Sep-2019
 %
 num = [0  0.05  0];      % numerator
-den = [1 -0.6  -0.05 ];  % denominator
+den = [1 -0.6  0.05 ];  % denominator
 
 x= [1 zeros(1,40)];  % kronecker delta input
 x1 = [1 ones(1,40)]; % unit step
