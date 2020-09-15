@@ -5,7 +5,7 @@
 sample_period=0.001;
 N = 256;
 t=[0:sample_period:(N-1)*sample_period];
-hz=linspace(-0.25/sample_period, 0.25/sample_period, N);
+hz=linspace(-0.5/sample_period, 0.5/sample_period, N);
 w=hz*2*pi;
 
 x=cos(100*t);
