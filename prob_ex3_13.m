@@ -1,4 +1,4 @@
-% Problem example 3.13 - p 159 Blandford and Parr
+% Problem example 3.13 - p 119 Blandford and Parr
 %
 % F. Frigo  15-Sep-2020
 %
