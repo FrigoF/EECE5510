@@ -1,4 +1,4 @@
-% prob5_30.m - create 2 FIR Filters and Cascade them - page 282 Blanford
+% prob5_30.m - create 2 FIR Filters and Cascade them - page 282 Blandford
 % 
 % Marquette University
 % Oct 8, 2020
