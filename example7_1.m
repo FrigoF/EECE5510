@@ -1,6 +1,7 @@
 % Example 7.1 - p 375 Blandford and Parr
 % 
 % F. Frigo  05-Nov-2020
+% Marquette University
 %
 
 N = 1000; % Number of points
