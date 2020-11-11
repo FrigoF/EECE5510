@@ -38,7 +38,6 @@ hold on;
 %PWMPlot has N2 times as many samples as t.
 Ts = T/N2;
 t1=0:Ts:(N1*T)-Ts;
-%t1 = linspace(0,((N2*N1)-Ts),(N2*N1));
 plot(t1, PWMPlot);
 axis([0 0.04 -0.1 1.1]); % This is an early segment of the signal
 title ('PWM encoded signal');
