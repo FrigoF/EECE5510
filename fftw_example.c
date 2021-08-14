@@ -2,16 +2,16 @@
 //
 // Fred J. Frigo
 // Marquette University
-// 09-Sep-2020
+// 14-Aug-2021
 //
 // Source code from : http://micro.stanford.edu/wiki/Install_FFTW3
 //
 //  gcc fftw_example.c -lm  -lfftw3 -o fftw_example 
  
-#include <fftw3.h>
-#include <math.h>
+ #include <fftw3.h>
+ #include <math.h>
       
-int main(int argc, char **argv){
+ int main(int argc, char **argv){
    const ptrdiff_t N0 = 18, N1 = 18;
    fftw_plan plan;
    fftw_complex *data;
@@ -53,4 +53,4 @@ int main(int argc, char **argv){
    fftw_destroy_plan(plan);
    fftw_free(data); 
    return 0;
-}
+ }
