@@ -2,17 +2,23 @@
 //
 // Fred J. Frigo
 // Marquette University
-// 14-Aug-2021
+// 05-Sep-2021
 //
 // Source code from : http://micro.stanford.edu/wiki/Install_FFTW3
 //
 //  gcc fftw_example.c -lm  -lfftw3 -o fftw_example 
- 
+
+ #include <stdio.h>
+ #include <sys/time.h>   
  #include <fftw3.h>
  #include <math.h>
       
  int main(int argc, char **argv){
-   const ptrdiff_t N0 = 18, N1 = 18;
+
+   const ptrdiff_t N0 = 128, N1 = 128;  /* 128 x 128 */
+   struct timeval t1, t2;
+   double elapsedTime;
+
    fftw_plan plan;
    fftw_complex *data;
  
@@ -31,10 +37,16 @@
        pdata+=data[i*N1 + j][0]*data[i*N1 + j][0]+data[i*N1 + j][1]*data[i*N1 + j][1];
      }
    }
-   printf("power of original data is %f\n", pdata);
+   printf("power of original  data is %f\n", pdata);
  
+   /* start timer */
+   gettimeofday(&t1, NULL);
+
    /* compute transforms, in-place, as many times as desired */
    fftw_execute(plan);
+
+   /* stop timer */
+   gettimeofday(&t2, NULL);
  
    double normalization=sqrt((double)N0*N1);
    double ptransform = 0;
@@ -48,9 +60,15 @@
      }
    }
  
-   printf("power of transform is %f\n", pdata);
+   printf("power of transform data is %f\n", ptransform);
   
    fftw_destroy_plan(plan);
    fftw_free(data); 
+
+   /* print the FFT time in millisec */
+   elapsedTime = (t2.tv_sec - t1.tv_sec) * 1000.0;      // sec to ms
+   elapsedTime += (t2.tv_usec - t1.tv_usec) / 1000.0;   // us to ms
+   printf("FFT Time: %f ms.\n", elapsedTime);
+
    return 0;
  }
