@@ -10,7 +10,7 @@ N = fs/f; %Number of samples
 % xq is the quantized signal - quantized to b bits
 % Ps is the signal power. Pn is the noise power,
 i = 1:N;
-x = sin(2*pi*f*(i-1)*T);  % x is sinusoid with max = 1V, min = -1V
+x = 0.4*sin(2*pi*f*(i-1)*T);  % x is sinusoid with max = 1V, min = -1V
 xq = round(x.*2^(b-1)); % truncate by rounding
 xq = xq/(2^(b-1));
 Ps = sum(x.^2);
