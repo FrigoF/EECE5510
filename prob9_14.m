@@ -8,6 +8,7 @@ t = (0:3*fs)*T; % 3 seconds
 u = .49*(chirp(t, 10, 3, 1000)+1);
 
 % wavwrite(u, fs, 'ChirpWav');  % wavwrite is replaced by audiowrite()
+sound(u,fs); % play sound
 audiowrite('ChirpSound.wav',u,fs);  % *.wav format
 
 % For *.mp4 audiowrite() supports only 44100 or 48000 Hz Sample Rate
