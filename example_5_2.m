@@ -1,12 +1,11 @@
 % Example 5.2 - p 211 Blandford and Parr
 % 
-% F. Frigo  20-Sep-2022
+% F. Frigo  25-Sep-2023
 % Marquette University
 %
 N = 30; %Order
 fs = 11025;
-F = [0 2000/(fs/2) 2000/(fs/2) 1]; %Frequency vector normalized
-%to fs/2
+F = [0 2000/(fs/2) 2000/(fs/2) 1]; %Frequency vector normalized to fs/2
 M = [2 2 0 0]; %Corresponding magnitude vector
 num = firls(N, F, M);
 [H f] = freqz(num, 1, 1024, fs) ;
