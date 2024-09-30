@@ -4,7 +4,15 @@
 %
  
 % Read color photo
-im = imread('picnic.jpg');  
+function zip_image( imfile )
+
+
+if(nargin == 0)
+    [fname,iname] = uigetfile('*.*', 'Select Image file');
+    imfile = strcat(iname, fname);
+end
+
+im = imread(imfile);  
 figure();
 imshow(im);
 title("Color image");
@@ -21,8 +29,8 @@ title(gray_title);
 % Take the magnitude of the FFT
 F=fft2(double(gray));
 S=fftshift(F);
-L=log2(S);
-A=abs(L);
+L=abs(S);
+A=log2(L);
 figure();
 imagesc(A)
 axis image;
