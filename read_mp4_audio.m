@@ -1,4 +1,4 @@
-% read_mp4_audio.m - Reads audio from channel 1 of mp4 file 
+% read_mp4_audio.m - Reads audio from mp4 file 
 % EECE 4510 / 5510 - Marquette University
 % Fred J. Frigo 
 % Nov 20, 2024
