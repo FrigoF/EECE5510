@@ -7,7 +7,6 @@
 
 % Read DICOM image file 
 dfile = "";
-dfile = 'e31s360i11.dcm';
 if(dfile == "")
     [fname, pname] = uigetfile('*.*', 'Select DICOM image File');
     dfile = strcat(pname, fname);
@@ -18,7 +17,7 @@ info = dicominfo(dfile);
 exam = info.StudyID;
 series = info.SeriesNumber;
 patient_name = info.PatientName;
-display( patient_name);
+% display( patient_name);
 
 MR_img = dicomread(info);
 figure();
