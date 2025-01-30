@@ -1,8 +1,8 @@
-// fft_example.c -  Test for FFT benchmark 
+// fft_example.c -  2D FFT Test for FFT benchmark 
 //
 // Fred J. Frigo
 // Marquette University
-// 05-Sep-2021
+// 29-Jan-2025
 //
 //  gcc fft_example.c -lm  -o fft_example 
 
@@ -141,12 +141,14 @@
 
  int main(int argc, char **argv){
 
-   const int  N0 = 128, N1 = 128;  /* 128 x 128 */
+   const int  N0 = 1024, N1 = 1024;  /* 1024 x 1024 */
    struct timeval t1, t2;
    double elapsedTime;
    fcomplex *data;
+   fcomplex *output;
 
-   data = (fcomplex *) malloc(sizeof(fcomplex) * N0 * N1);
+   data   = (fcomplex *) malloc(sizeof(fcomplex) * N0 * N1);
+   output = (fcomplex *) malloc(sizeof(fcomplex) * N0 * N1);
  
    /* initialize data to some function my_function(x,y) */
    int i, j;
@@ -163,15 +165,27 @@
    /* start timer */
    gettimeofday(&t1, NULL);
 
-   /* compute transforms, in-place, as many times as desired */
+   /* compute row transforms in-place */
    for (i=0; i < N0; ++i){
      cfft( &data[i*N1], N1, 1 );
+   }
+
+   /* Matrix Transpose */
+   for (i = 0; i < N0; ++i){
+      for (j = 0; j < N1; ++j){
+       output[j*N1 + i]=data[i*N1 +j];
+      }
+   }
+
+   /* compute column transforms in-place */
+   for (i=0; i < N1; ++i){
+     cfft( &data[i*N0], N0, 1 );
    }
 
    /* stop timer */
    gettimeofday(&t2, NULL);
  
-   double normalization=sqrt((double)N1);
+   double normalization=sqrt((double)N1*(double)N2);
    double ptransform = 0;
  
    /*normalize data and calculate power of transform */
