@@ -185,7 +185,7 @@
    /* stop timer */
    gettimeofday(&t2, NULL);
  
-   double normalization=sqrt((double)N1*(double)N2);
+   double normalization=sqrt((double)N0*(double)N1);
    double ptransform = 0;
  
    /*normalize data and calculate power of transform */
