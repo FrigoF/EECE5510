@@ -37,6 +37,7 @@ XM_ideal(offset - w0_index) = magnitude*pi;
 XM_ideal(offset + w0_index) = magnitude*pi;
 figure();
 plot(w,abs(XM_ideal));
-ylabel('Ideal Magnitude');
+ylabel('Magnitude');
 xlabel('freq in rad/sec');
+title('Ideal Solution'); drawnow;
 
