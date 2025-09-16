@@ -1,8 +1,8 @@
-// fftw_example.c -  Test for FFTW library
+// fftw_example.c -  2D FFT Test for FFTW library
 //
 // Fred J. Frigo
 // Marquette University
-// 05-Sep-2021
+// 29-Jan-2025 
 //
 // Source code from : http://micro.stanford.edu/wiki/Install_FFTW3
 //
@@ -15,7 +15,7 @@
       
  int main(int argc, char **argv){
 
-   const ptrdiff_t N0 = 128, N1 = 128;  /* 128 x 128 */
+   const ptrdiff_t N0 = 1024, N1 = 1024;  /* 1024 x 1024 */
    struct timeval t1, t2;
    double elapsedTime;
 
