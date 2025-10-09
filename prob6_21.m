@@ -33,7 +33,28 @@ title('Phase');
 xlabel('frequency in Hz');
 ylabel('phase in degrees');
 
+% Blowups of Pass Band and Stop Band
+figure(2);clf;
+subplot(3, 1, 1);
+plot(f, abs(H), 'b');
+axis([0 fpass 1-Rpass 1+Rpass]);
+title('Pass band');
+xlabel('frequency in Hz');
+ylabel('gain');
+subplot(3, 1, 2);
+plot(f, abs(H), 'b');
+axis([fpass fstop 0 1+Rpass]);
+title('Transistion band');
+xlabel('frequency in Hz');
+subplot(3, 1, 3);
+plot(f, abs(H), 'b');
+axis([fstop fs/2 0 Rstop]);
+title('Stop band');
+xlabel('frequency in Hz');
+ylabel('gain');
+
+
 % OPTIONAL:  Use linearSystemAnalyzer (requires Control Systems Toolbox
-Ts = 1/fs; % sampling period
-sys_disc = tf(num, den, Ts,'Variable','z^-1');  % discrete time transfer function
-linearSystemAnalyzer('impulse', sys_disc);
+% Ts = 1/fs; % sampling period
+% sys_disc = tf(num, den, Ts,'Variable','z^-1');  % discrete time transfer function
+% linearSystemAnalyzer('impulse', sys_disc);
